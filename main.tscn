@@ -1,12 +1,33 @@
 [gd_scene format=3 uid="uid://fww1rpcrhcnp"]
 
 [ext_resource type="PackedScene" uid="uid://x5hbjf0jq3as" path="res://entidades/player.tscn" id="1_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://d3ncwt7t1u7g0" path="res://entidades/obstaculo_estatico.tscn" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://f1oxw8ho1ikl" path="res://managers/spawn_manager.gd" id="1_h2yge"]
+
+[sub_resource type="Curve" id="Curve_1bvp3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of8oi"]
 size = Vector2(493.75, 4.625)
 
 [node name="Main" type="Node2D" unique_id=1075356966]
+
+[node name="GameManager" type="Node" parent="." unique_id=528555639]
+
+[node name="SpawnManager" type="Node" parent="." unique_id=610926889 node_paths=PackedStringArray("GameManager", "enemies2D")]
+script = ExtResource("1_h2yge")
+GameManager = NodePath("../GameManager")
+difficultyCurve = SubResource("Curve_1bvp3")
+enemies2D = NodePath("../Enemies2D")
+
+[node name="SpawnPointTerrestre" type="Marker2D" parent="SpawnManager" unique_id=2102753730]
+position = Vector2(370, 148)
+
+[node name="SpawnTimer" type="Timer" parent="SpawnManager" unique_id=1147397860]
+wait_time = 3.0
+autostart = true
+
+[node name="Enemies2D" type="Node2D" parent="." unique_id=1759486715]
 
 [node name="Suelo" type="StaticBody2D" parent="." unique_id=512440532]
 position = Vector2(163, 170)
@@ -17,5 +38,4 @@ shape = SubResource("RectangleShape2D_of8oi")
 [node name="Player" parent="." unique_id=359316321 instance=ExtResource("1_0xm2m")]
 position = Vector2(41, 141)
 
-[node name="ObstaculoEstatico" parent="." unique_id=1215452562 instance=ExtResource("2_h2yge")]
-position = Vector2(402, 74)
+[connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c2q7iue113kd2" path="res://player.gd" id="1_11m8g"]
 [ext_resource type="Texture2D" uid="uid://bxoe8os6thuky" path="res://icon.svg" id="2_kp4u0"]
+[ext_resource type="Script" uid="uid://dbswtjkx1mnvp" path="res://entidades/movement_manager.gd" id="3_kp4u0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(16, 19)
@@ -41,5 +42,9 @@ debug_color = Color(0.9876068, 0.2967746, 0.34471893, 0.41960785)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044944956]
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_of8oi")
+
+[node name="MovementManager" type="Node" parent="." unique_id=160664326 node_paths=PackedStringArray("player")]
+script = ExtResource("3_kp4u0")
+player = NodePath("..")
 
 [connection signal="area_entered" from="HurtBoxDePie" to="." method="_on_hurt_box_de_pie_area_entered"]

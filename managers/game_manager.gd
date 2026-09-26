@@ -15,7 +15,7 @@ func _on_player_murio_jugador() -> void:
 
 func game_over() -> void:
 	get_tree().paused = true
-  get_tree().change_scene_to_file("res://UI/MenuGameOver.tscn")
+	get_tree().change_scene_to_file("res://UI/MenuGameOver.tscn")
 
 
 func _on_score_timer_timeout() -> void:

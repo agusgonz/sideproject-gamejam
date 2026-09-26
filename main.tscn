@@ -25,6 +25,9 @@ enemies2D = NodePath("../Enemies2D")
 [node name="SpawnPointTerrestre" type="Marker2D" parent="SpawnManager" unique_id=2102753730]
 position = Vector2(370, 148)
 
+[node name="SpawnPointVolador" type="Marker2D" parent="SpawnManager" unique_id=878771475]
+position = Vector2(370, 117)
+
 [node name="SpawnTimer" type="Timer" parent="SpawnManager" unique_id=1147397860]
 wait_time = 3.0
 autostart = true

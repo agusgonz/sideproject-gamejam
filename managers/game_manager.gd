@@ -1,6 +1,7 @@
 extends Node
-
 signal score_changed(score)
+
+@onready var canvas_layer_ui: CanvasLayer = $"../CanvasLayerUI"
 
 var score := 0:
 	set(value):
@@ -11,11 +12,9 @@ func _on_player_murio_jugador() -> void:
 	game_over()
 	
 
-
-
 func game_over() -> void:
 	get_tree().paused = true
-	get_tree().change_scene_to_file("res://UI/MenuGameOver.tscn")
+	canvas_layer_ui.game_over()
 
 
 func _on_score_timer_timeout() -> void:
@@ -25,4 +24,5 @@ func _on_score_timer_timeout() -> void:
 func restart_game() -> void:
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://main.tscn")
+	
 	

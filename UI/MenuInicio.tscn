@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://eoupk4ool3n3"]
+
+[ext_resource type="Script" uid="uid://cjq1i5r4nkeac" path="res://UI/menu_inicio.gd" id="1_ui4ye"]
+
+[node name="MenuInicio" type="Control" unique_id=69697496]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ui4ye")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=839239506]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1485210515]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="BotonEmpezar" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1861238429]
+layout_mode = 2
+text = "Empezar"
+
+[node name="BotonSalir" type="Button" parent="MarginContainer/VBoxContainer" unique_id=762070659]
+layout_mode = 2
+text = "Salir"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotonEmpezar" to="." method="_on_boton_empezar_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BotonSalir" to="." method="_on_boton_salir_pressed"]

@@ -52,6 +52,26 @@ offset_bottom = 23.0
 text = "Score: 0"
 script = ExtResource("4_1bvp3")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1745616813]
+layer = -10
+
+[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=492003579]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.76906264, 0.92170465, 0.9245096, 1)
+
+[node name="Floor" type="ColorRect" parent="CanvasLayer" unique_id=1605740084]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 166.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.4429102, 0.44291112, 0.4429103, 1)
+
 [connection signal="score_changed" from="GameManager" to="CanvasLayer/ScoreLabel" method="_on_game_manager_score_changed"]
 [connection signal="timeout" from="GameManager/ScoreTimer" to="GameManager" method="_on_score_timer_timeout"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]

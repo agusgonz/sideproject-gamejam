@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://fww1rpcrhcnp"]
 
 [ext_resource type="PackedScene" uid="uid://x5hbjf0jq3as" path="res://entidades/player.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bdp5vhqrwf5xd" path="res://managers/game_manager.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://f1oxw8ho1ikl" path="res://managers/spawn_manager.gd" id="1_h2yge"]
 
 [sub_resource type="Curve" id="Curve_1bvp3"]
@@ -13,6 +14,7 @@ size = Vector2(493.75, 4.625)
 [node name="Main" type="Node2D" unique_id=1075356966]
 
 [node name="GameManager" type="Node" parent="." unique_id=528555639]
+script = ExtResource("1_1bvp3")
 
 [node name="SpawnManager" type="Node" parent="." unique_id=610926889 node_paths=PackedStringArray("GameManager", "enemies2D")]
 script = ExtResource("1_h2yge")
@@ -39,3 +41,4 @@ shape = SubResource("RectangleShape2D_of8oi")
 position = Vector2(41, 141)
 
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]
+[connection signal="murio_jugador" from="Player" to="GameManager" method="_on_player_murio_jugador"]

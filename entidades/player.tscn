@@ -4,10 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bxoe8os6thuky" path="res://icon.svg" id="2_kp4u0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(22, 22)
+size = Vector2(16, 19)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(22, 11)
+size = Vector2(16, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_of8oi"]
+size = Vector2(20, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=359316321]
 script = ExtResource("1_11m8g")
@@ -16,10 +19,27 @@ script = ExtResource("1_11m8g")
 scale = Vector2(0.171875, 0.171875)
 texture = ExtResource("2_kp4u0")
 
-[node name="ColisionDePie" type="CollisionShape2D" parent="." unique_id=1537019512]
-shape = SubResource("RectangleShape2D_1bvp3")
+[node name="HurtBoxDePie" type="Area2D" parent="." unique_id=1905787728]
+collision_layer = 0
+collision_mask = 2
 
-[node name="ColisionAgachado" type="CollisionShape2D" parent="." unique_id=73590287]
-position = Vector2(0, 5.5)
+[node name="ColisionDePie" type="CollisionShape2D" parent="HurtBoxDePie" unique_id=1537019512]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+debug_color = Color(0.8609257, 0.59437644, 0, 0.41960785)
+
+[node name="HurtBoxAgachado" type="Area2D" parent="." unique_id=1972627409]
+collision_layer = 0
+collision_mask = 2
+
+[node name="ColisionAgachado" type="CollisionShape2D" parent="HurtBoxAgachado" unique_id=73590287]
+position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_lquwl")
 disabled = true
+debug_color = Color(0.9876068, 0.2967746, 0.34471893, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044944956]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_of8oi")
+
+[connection signal="area_entered" from="HurtBoxDePie" to="." method="_on_hurt_box_de_pie_area_entered"]

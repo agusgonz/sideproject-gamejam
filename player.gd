@@ -1,10 +1,11 @@
 extends CharacterBody2D
+signal murio_jugador
 
 const JUMP_VELOCITY = -600.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var colision_pie = $ColisionDePie
-@onready var colision_agachado = $ColisionAgachado
+@onready var colision_pie = $HurtBoxDePie/ColisionDePie
+@onready var colision_agachado = $HurtBoxAgachado/ColisionAgachado
 
 func _physics_process(delta):
 	# Aplicar gravedad
@@ -26,3 +27,6 @@ func _physics_process(delta):
 		# Aquí luego reproducirás la animación de correr
 
 	move_and_slide()
+	
+func _on_hurt_box_de_pie_area_entered(area: Area2D) -> void:
+	murio_jugador.emit()

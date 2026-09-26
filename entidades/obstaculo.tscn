@@ -5,6 +5,8 @@
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=107439700]
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=842217345]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1478201864]
 

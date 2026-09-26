@@ -12,7 +12,7 @@ config_version=5
 
 config/name="sideproject"
 config/tags=PackedStringArray("jam_game")
-run/main_scene="uid://fww1rpcrhcnp"
+run/main_scene="uid://eoupk4ool3n3"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

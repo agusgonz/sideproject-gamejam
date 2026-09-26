@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 
 # Called when the node enters the scene tree for the first time.
@@ -10,16 +10,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func _on_player_murio_jugador() -> void:
-	game_over()
-	
-
-
-func game_over() -> void:
-	get_tree().paused = true
-	get_tree().change_scene_to_file("res://UI/MenuGameOver.tscn")
-
-func restart_game() -> void:
-	get_tree().paused = false
+func _on_boton_empezar_pressed() -> void:
 	get_tree().change_scene_to_file("res://main.tscn")
-	
+
+func _on_boton_salir_pressed() -> void:
+	get_tree().quit()

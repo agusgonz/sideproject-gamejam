@@ -55,6 +55,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.25098076, 0.6007175, 0.53784674, 1)
 
 [node name="Floor" type="ColorRect" parent="CanvasLayer" unique_id=1605740084]
@@ -64,9 +65,11 @@ anchor_bottom = 1.0
 offset_top = 166.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 color = Color(0.4429102, 0.44291112, 0.4429103, 1)
 
 [node name="CanvasLayerUI" type="CanvasLayer" parent="." unique_id=1745616813]
+layer = 10
 script = ExtResource("4_7mycd")
 
 [node name="MenuGameOver" parent="CanvasLayerUI" unique_id=264812102 instance=ExtResource("5_272bh")]
@@ -75,10 +78,11 @@ visible = false
 [node name="ScoreLabel" type="Label" parent="CanvasLayerUI" unique_id=2000804350]
 offset_right = 61.0
 offset_bottom = 23.0
-text = "Score: 0"
+text = "Puntos: 0"
 script = ExtResource("4_1bvp3")
 
 [connection signal="score_changed" from="GameManager" to="CanvasLayerUI/ScoreLabel" method="_on_game_manager_score_changed"]
 [connection signal="timeout" from="GameManager/ScoreTimer" to="GameManager" method="_on_score_timer_timeout"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]
 [connection signal="murio_jugador" from="Player" to="GameManager" method="_on_player_murio_jugador"]
+[connection signal="game_restarted" from="CanvasLayerUI/MenuGameOver" to="GameManager" method="_on_menu_game_over_game_restarted"]

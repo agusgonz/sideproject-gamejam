@@ -14,12 +14,10 @@ func _physics_process(delta):
 		colision_pie.disabled = true
 		colision_agachado.disabled = false
 		player_crouched.emit()
-		print("crouched")
 	elif Input.is_action_just_released("crouch"):
 		colision_pie.disabled = false
 		colision_agachado.disabled = true
 		player_uncrouched.emit()
-		print("uncrouched")
 
 
 func _on_hurt_box_de_pie_area_entered(area: Area2D) -> void:

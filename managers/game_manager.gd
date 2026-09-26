@@ -1,17 +1,19 @@
 extends Node
 
+signal score_changed(score)
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var score := 0:
+	set(value):
+		score = value
+		score_changed.emit(value)
 
 func _on_player_murio_jugador() -> void:
 	game_over()
 
+
 func game_over() -> void:
 	get_tree().paused = true
+
+
+func _on_score_timer_timeout() -> void:
+	score += 1 * 100

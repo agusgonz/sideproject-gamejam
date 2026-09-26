@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://x5hbjf0jq3as"]
+
+[ext_resource type="Script" uid="uid://c2q7iue113kd2" path="res://player.gd" id="1_11m8g"]
+[ext_resource type="Texture2D" uid="uid://bxoe8os6thuky" path="res://icon.svg" id="2_kp4u0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(22, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(22, 11)
+
+[node name="Player" type="CharacterBody2D" unique_id=359316321]
+script = ExtResource("1_11m8g")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1368156229]
+scale = Vector2(0.171875, 0.171875)
+texture = ExtResource("2_kp4u0")
+
+[node name="ColisionDePie" type="CollisionShape2D" parent="." unique_id=1537019512]
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="ColisionAgachado" type="CollisionShape2D" parent="." unique_id=73590287]
+position = Vector2(0, 5.5)
+shape = SubResource("RectangleShape2D_lquwl")
+disabled = true

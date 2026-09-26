@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d3ncwt7t1u7g0"]
+
+[ext_resource type="PackedScene" uid="uid://drc162w5rmim5" path="res://entidades/obstaculo.tscn" id="1_rmig8"]
+[ext_resource type="Script" uid="uid://xkycjqvo4vp1" path="res://entidades/obstaculo_estatico.gd" id="2_cu052"]
+[ext_resource type="Texture2D" uid="uid://bxoe8os6thuky" path="res://icon.svg" id="2_jpfyd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu052"]
+size = Vector2(30, 28)
+
+[node name="ObstaculoEstatico" unique_id=1215452562 instance=ExtResource("1_rmig8")]
+script = ExtResource("2_cu052")
+
+[node name="Sprite2D" parent="." index="0" unique_id=107439700]
+scale = Vector2(0.3125, 0.3125)
+texture = ExtResource("2_jpfyd")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(842217345) index="0" unique_id=1478201864]
+shape = SubResource("RectangleShape2D_cu052")
+debug_color = Color(0.7529412, 0, 0.12941177, 0.41960785)
+
+[node name="VisibleOnScreenNotifier2D" parent="." index="2" unique_id=1319535588]
+rect = Rect2(-20, -20, 40, 40)
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

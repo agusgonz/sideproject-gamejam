@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://drc162w5rmim5"]
+
+[node name="Obstaculo" type="CharacterBody2D" unique_id=1215452562]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=107439700]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=842217345]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1478201864]
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1319535588]

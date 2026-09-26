@@ -1,37 +1,21 @@
 [gd_scene format=3 uid="uid://fww1rpcrhcnp"]
 
-[ext_resource type="Script" uid="uid://c2q7iue113kd2" path="res://player.gd" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://bxoe8os6thuky" path="res://icon.svg" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://x5hbjf0jq3as" path="res://entidades/player.tscn" id="1_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://d3ncwt7t1u7g0" path="res://entidades/obstaculo_estatico.tscn" id="2_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of8oi"]
-size = Vector2(1151.5, 39.25)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(69, 127)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(52, 37)
+size = Vector2(493.75, 4.625)
 
 [node name="Main" type="Node2D" unique_id=1075356966]
 
 [node name="Suelo" type="StaticBody2D" parent="." unique_id=512440532]
+position = Vector2(163, 170)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=702632071]
-position = Vector2(574, 628)
 shape = SubResource("RectangleShape2D_of8oi")
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=31028894]
-position = Vector2(209, 541)
-script = ExtResource("1_0xm2m")
+[node name="Player" parent="." unique_id=359316321 instance=ExtResource("1_0xm2m")]
+position = Vector2(41, 141)
 
-[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1448286976]
-texture = ExtResource("2_h2yge")
-
-[node name="ColisionDePie" type="CollisionShape2D" parent="Player" unique_id=1784083214]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_1bvp3")
-
-[node name="ColisionAgachado" type="CollisionShape2D" parent="Player" unique_id=7381234]
-position = Vector2(-1, 42.5)
-shape = SubResource("RectangleShape2D_lquwl")
-disabled = true
+[node name="ObstaculoEstatico" parent="." unique_id=1215452562 instance=ExtResource("2_h2yge")]
+position = Vector2(402, 74)

@@ -83,7 +83,8 @@ process_mode = 3
 visible = false
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayerUI" unique_id=2000804350]
-offset_right = 61.0
+offset_left = 6.0
+offset_right = 78.0
 offset_bottom = 23.0
 text = "Puntos: 0"
 script = ExtResource("4_1bvp3")

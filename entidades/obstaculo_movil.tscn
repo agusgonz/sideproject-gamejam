@@ -5,6 +5,8 @@
 
 [node name="ObstaculoMovil" unique_id=1215452562 instance=ExtResource("1_qv6kh")]
 script = ExtResource("2_656ls")
+zigzag_amplitude = 100.0
+zigzag_frequency = 3.5
 
 [node name="Sprite2D" parent="." index="0" unique_id=107439700]
 scale = Vector2(0.625, 0.625)

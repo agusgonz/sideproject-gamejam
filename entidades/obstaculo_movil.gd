@@ -10,6 +10,8 @@ const ENVIRONMENT_SPEED = 100.0
 @onready var collision_shape_2d: CollisionShape2D = $Hitbox/CollisionShape2D
 
 var time_passed : float = 0.0
+var difficulty := 1
+var changing_amplitude := zigzag_amplitude
 
 func _ready() -> void:
 	sprite_2d.texture = recurso.texture
@@ -17,8 +19,8 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	time_passed += delta
-	
-	velocity.x = -ENVIRONMENT_SPEED
+	changing_amplitude = zigzag_amplitude * difficulty
+	velocity.x = -ENVIRONMENT_SPEED * difficulty
 	
 	velocity.y = cos(time_passed * zigzag_frequency) * zigzag_amplitude
 	

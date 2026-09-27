@@ -16,6 +16,9 @@ const OBSTACULO_ESTATICO = preload("uid://d3ncwt7t1u7g0")
 const OBSTACULO_MOVIL = preload("uid://dnkpu3bb3pbsj")
 
 var enemigos := [CONO, OBJETO_VOLADOR, OBJETO_MOVIBLE]
+var difficulty := 1.0
+
+@onready var spawn_timer_default_wait = spawn_timer.wait_time
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -45,3 +48,9 @@ func spawn_enemigo_estatico() -> void:
 	
 	
 	obstaculoInstanciado.global_position = spawnPointsGlobalPosition
+	obstaculoInstanciado.difficulty = difficulty
+
+
+func _on_game_manager_score_changed(score: Variant) -> void:
+	difficulty = difficultyCurve.sample(clamp(score, difficultyCurve.min_domain, difficultyCurve.max_domain))
+	spawn_timer.wait_time = spawn_timer_default_wait / difficulty

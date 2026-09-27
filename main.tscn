@@ -73,6 +73,7 @@ layer = 10
 script = ExtResource("4_7mycd")
 
 [node name="MenuGameOver" parent="CanvasLayerUI" unique_id=264812102 instance=ExtResource("5_272bh")]
+process_mode = 3
 visible = false
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayerUI" unique_id=2000804350]
@@ -81,6 +82,7 @@ offset_bottom = 23.0
 text = "Puntos: 0"
 script = ExtResource("4_1bvp3")
 
+[connection signal="gameover" from="GameManager" to="CanvasLayerUI" method="_on_game_manager_gameover"]
 [connection signal="score_changed" from="GameManager" to="CanvasLayerUI/ScoreLabel" method="_on_game_manager_score_changed"]
 [connection signal="timeout" from="GameManager/ScoreTimer" to="GameManager" method="_on_score_timer_timeout"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]

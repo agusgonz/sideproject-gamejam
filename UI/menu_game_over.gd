@@ -2,19 +2,15 @@ extends Control
 
 signal game_restarted
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+@onready var label_puntos: Label = $MarginContainer/VBoxContainer/LabelPuntos
 
+func set_score(score):
+	label_puntos.text = "Puntos: " + str(score)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
 func _on_boton_salir_pressed() -> void:
 	get_tree().quit()
 
 
 func _on_boton_reintentar_pressed() -> void:
-	print("reintentar")
 	game_restarted.emit()

@@ -6,6 +6,7 @@ signal murio_jugador
 
 @onready var colision_pie = $HurtBoxDePie/ColisionDePie
 @onready var colision_agachado = $HurtBoxAgachado/ColisionAgachado
+@onready var ded: AudioStreamPlayer2D = $ded
 
 func _physics_process(delta):
 	
@@ -22,3 +23,4 @@ func _physics_process(delta):
 
 func _on_hurt_box_de_pie_area_entered(area: Area2D) -> void:
 	murio_jugador.emit()
+	ded.play()

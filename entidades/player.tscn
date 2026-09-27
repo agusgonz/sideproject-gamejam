@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://dbswtjkx1mnvp" path="res://entidades/movement_manager.gd" id="3_kp4u0"]
 [ext_resource type="Script" uid="uid://n6jb4ru25rty" path="res://entidades/animation_player.gd" id="4_0p7bn"]
 [ext_resource type="AudioStream" uid="uid://cigapiupx5hg3" path="res://sfx/jump.mp3" id="6_2qu0p"]
+[ext_resource type="AudioStream" uid="uid://dxuujaiobna1j" path="res://sfx/bicycle_spokes-1.wav" id="7_7y4ih"]
+[ext_resource type="AudioStream" uid="uid://45j6vug08amk" path="res://sfx/Dog Bark.wav" id="8_r4ns2"]
+[ext_resource type="AudioStream" uid="uid://cloaskpfk5lqu" path="res://sfx/enemy_dead_01.wav" id="9_s8mye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcte5"]
 atlas = ExtResource("2_opfg8")
@@ -132,6 +135,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [&"default"]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bark:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_kq7hh"]
 resource_name = "crouch"
@@ -160,6 +175,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("bark:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_2qu0p"]
@@ -198,6 +225,21 @@ _data = {
 &"crouch": SubResource("Animation_kq7hh"),
 &"cycling": SubResource("Animation_2qu0p")
 }
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4c57u"]
+random_pitch = 1.6817927
+streams_count = 1
+stream_0/stream = ExtResource("6_2qu0p")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_7y4ih"]
+random_pitch = 1.4142135
+streams_count = 1
+stream_0/stream = ExtResource("7_7y4ih")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4do3y"]
+random_pitch = 1.4184678
+streams_count = 1
+stream_0/stream = ExtResource("8_r4ns2")
 
 [node name="Player" type="CharacterBody2D" unique_id=359316321]
 script = ExtResource("1_11m8g")
@@ -242,7 +284,19 @@ autoplay = &"cycling"
 script = ExtResource("4_0p7bn")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=21950885]
-stream = ExtResource("6_2qu0p")
+stream = SubResource("AudioStreamRandomizer_4c57u")
+volume_db = -10.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=969357468]
+stream = SubResource("AudioStreamRandomizer_7y4ih")
+autoplay = true
+
+[node name="bark" type="AudioStreamPlayer2D" parent="." unique_id=1985848527]
+stream = SubResource("AudioStreamRandomizer_4do3y")
+
+[node name="ded" type="AudioStreamPlayer2D" parent="." unique_id=1769575310]
+process_mode = 3
+stream = ExtResource("9_s8mye")
 
 [connection signal="player_crouched" from="." to="AnimationPlayer" method="_on_player_player_crouched"]
 [connection signal="player_uncrouched" from="." to="AnimationPlayer" method="_on_player_player_uncrouched"]

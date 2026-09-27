@@ -11,8 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://cp8la4n7ugi2a" path="res://art/SpriteSheet_ConcreteFloor.png" id="10_4c57u"]
 
 [sub_resource type="Curve" id="Curve_1bvp3"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
+_limits = [0.0, 4.0, 0.0, 12000.0]
+_data = [Vector2(0, 1.0112361), 0.0, 0.0, 0, 0, Vector2(4228.9155, 2.3703704), 0.0, 0.0, 0, 0, Vector2(12000, 4), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_of8oi"]
 size = Vector2(493.75, 4.625)
@@ -36,6 +37,9 @@ position = Vector2(370, 158)
 
 [node name="SpawnPointVolador" type="Marker2D" parent="SpawnManager" unique_id=878771475]
 position = Vector2(370, 121)
+
+[node name="SpawnPointMovible" type="Marker2D" parent="SpawnManager" unique_id=813723325]
+position = Vector2(370, 88)
 
 [node name="SpawnTimer" type="Timer" parent="SpawnManager" unique_id=1147397860]
 wait_time = 3.0
@@ -130,6 +134,7 @@ texture = ExtResource("10_4c57u")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo2" unique_id=1223628150]
 
 [connection signal="gameover" from="GameManager" to="CanvasLayerUI" method="_on_game_manager_gameover"]
+[connection signal="score_changed" from="GameManager" to="SpawnManager" method="_on_game_manager_score_changed"]
 [connection signal="score_changed" from="GameManager" to="CanvasLayerUI/ScoreLabel" method="_on_game_manager_score_changed"]
 [connection signal="timeout" from="GameManager/ScoreTimer" to="GameManager" method="_on_score_timer_timeout"]
 [connection signal="timeout" from="SpawnManager/SpawnTimer" to="SpawnManager" method="_on_spawn_timer_timeout"]

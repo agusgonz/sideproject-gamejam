@@ -11,6 +11,9 @@ extends Node
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (seconds_to_ascend * seconds_to_ascend)) * -1
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (seconds_to_descend * seconds_to_descend)) * -1
 
+#Sonido
+@export var jump_sfx : AudioStreamPlayer
+
 var speed : float
 
 
@@ -30,3 +33,5 @@ func get_gravity():
 
 func jump():
 	player.velocity.y = jump_velocity
+	if jump_sfx:
+		jump_sfx.play()

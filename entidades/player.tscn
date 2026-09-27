@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://d260e4grh63" path="res://art/PerroAgachado.png" id="2_opfg8"]
 [ext_resource type="Script" uid="uid://dbswtjkx1mnvp" path="res://entidades/movement_manager.gd" id="3_kp4u0"]
 [ext_resource type="Script" uid="uid://n6jb4ru25rty" path="res://entidades/animation_player.gd" id="4_0p7bn"]
+[ext_resource type="AudioStream" uid="uid://cigapiupx5hg3" path="res://sfx/jump.mp3" id="6_2qu0p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcte5"]
 atlas = ExtResource("2_opfg8")
@@ -228,16 +229,20 @@ debug_color = Color(0.9876068, 0.2967746, 0.34471893, 0.41960785)
 position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_of8oi")
 
-[node name="MovementManager" type="Node" parent="." unique_id=160664326 node_paths=PackedStringArray("player")]
+[node name="MovementManager" type="Node" parent="." unique_id=160664326 node_paths=PackedStringArray("player", "jump_sfx")]
 script = ExtResource("3_kp4u0")
 player = NodePath("..")
 seconds_to_ascend = 0.6
 seconds_to_descend = 0.5
+jump_sfx = NodePath("../AudioStreamPlayer")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485961483]
 libraries/ = SubResource("AnimationLibrary_7y4ih")
 autoplay = &"cycling"
 script = ExtResource("4_0p7bn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=21950885]
+stream = ExtResource("6_2qu0p")
 
 [connection signal="player_crouched" from="." to="AnimationPlayer" method="_on_player_player_crouched"]
 [connection signal="player_uncrouched" from="." to="AnimationPlayer" method="_on_player_player_uncrouched"]

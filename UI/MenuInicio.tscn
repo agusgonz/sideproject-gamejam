@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cjq1i5r4nkeac" path="res://UI/menu_inicio.gd" id="1_ui4ye"]
 [ext_resource type="Texture2D" uid="uid://dvcy0tvyh6yis" path="res://UI/Sprite_Dog.png" id="2_bwfyo"]
+[ext_resource type="Texture2D" uid="uid://bgkgcs8nkr7dg" path="res://art/ui/Empezar Normal.png" id="3_8n7pk"]
+[ext_resource type="Texture2D" uid="uid://dth5snuj6qbfn" path="res://art/ui/Empezar Señalado(1).png" id="4_jyouo"]
+[ext_resource type="Texture2D" uid="uid://bie644ehvdhbe" path="res://art/ui/Salir Normalito.png" id="5_upxmm"]
+[ext_resource type="Texture2D" uid="uid://cajspln2d43vs" path="res://art/ui/Salir Señalado yippee.png" id="6_8upe1"]
 
 [node name="MenuInicio" type="Control" unique_id=69697496]
 layout_mode = 3
@@ -33,13 +37,18 @@ grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 4
 
-[node name="BotonEmpezar" type="Button" parent="VBoxContainer" unique_id=1861238429]
+[node name="TextureButtonEmpezar" type="TextureButton" parent="VBoxContainer" unique_id=902755351]
 layout_mode = 2
-text = "Empezar"
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_8n7pk")
+texture_hover = ExtResource("4_jyouo")
 
-[node name="BotonSalir" type="Button" parent="VBoxContainer" unique_id=762070659]
+[node name="TextureButtonSalir" type="TextureButton" parent="VBoxContainer" unique_id=2316857]
 layout_mode = 2
-text = "Salir"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_upxmm")
+texture_hover = ExtResource("6_8upe1")
 
-[connection signal="pressed" from="VBoxContainer/BotonEmpezar" to="." method="_on_boton_empezar_pressed"]
-[connection signal="pressed" from="VBoxContainer/BotonSalir" to="." method="_on_boton_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButtonEmpezar" to="." method="_on_boton_empezar_pressed"]
+[connection signal="pressed" from="VBoxContainer/TextureButtonSalir" to="." method="_on_boton_salir_pressed"]

@@ -35,6 +35,9 @@ position = Vector2(370, 158)
 [node name="SpawnPointVolador" type="Marker2D" parent="SpawnManager" unique_id=878771475]
 position = Vector2(370, 121)
 
+[node name="SpawnPointMovible" type="Marker2D" parent="SpawnManager" unique_id=813723325]
+position = Vector2(370, 88)
+
 [node name="SpawnTimer" type="Timer" parent="SpawnManager" unique_id=1147397860]
 wait_time = 3.0
 autostart = true

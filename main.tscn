@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://07qkgw2vte2n" path="res://UI/MenuGameOver.tscn" id="5_272bh"]
 [ext_resource type="Script" uid="uid://8n42tebo6a6y" path="res://entidades/suelo_1.gd" id="9_kek77"]
 [ext_resource type="Texture2D" uid="uid://cp8la4n7ugi2a" path="res://art/SpriteSheet_ConcreteFloor.png" id="10_4c57u"]
+[ext_resource type="AudioStream" uid="uid://b62d5jc2h2rfo" path="res://music/I Got a Stick Arr Bryan Teoh.mp3" id="10_efxa6"]
 
 [sub_resource type="Curve" id="Curve_1bvp3"]
 _limits = [0.0, 4.0, 0.0, 12000.0]
@@ -132,6 +133,10 @@ position = Vector2(334, 188)
 texture = ExtResource("10_4c57u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo2" unique_id=1223628150]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1518921805]
+stream = ExtResource("10_efxa6")
+autoplay = true
 
 [connection signal="gameover" from="GameManager" to="CanvasLayerUI" method="_on_game_manager_gameover"]
 [connection signal="score_changed" from="GameManager" to="SpawnManager" method="_on_game_manager_score_changed"]

@@ -1,8 +1,12 @@
 extends CharacterBody2D
 
+@export var texture : Texture2D
 
-const ENVIRONMENT_SPEED = 40.0
+const ENVIRONMENT_SPEED = 100.0
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
+func _ready() -> void:
+	sprite_2d.texture = texture
 
 func _physics_process(delta: float) -> void:
 	velocity = Vector2.LEFT * ENVIRONMENT_SPEED

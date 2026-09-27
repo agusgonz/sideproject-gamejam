@@ -29,7 +29,7 @@ difficultyCurve = SubResource("Curve_1bvp3")
 enemies2D = NodePath("../Enemies2D")
 
 [node name="SpawnPointTerrestre" type="Marker2D" parent="SpawnManager" unique_id=2102753730]
-position = Vector2(370, 148)
+position = Vector2(370, 154)
 
 [node name="SpawnTimer" type="Timer" parent="SpawnManager" unique_id=1147397860]
 wait_time = 3.0

@@ -231,6 +231,8 @@ shape = SubResource("RectangleShape2D_of8oi")
 [node name="MovementManager" type="Node" parent="." unique_id=160664326 node_paths=PackedStringArray("player")]
 script = ExtResource("3_kp4u0")
 player = NodePath("..")
+seconds_to_ascend = 0.6
+seconds_to_descend = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=485961483]
 libraries/ = SubResource("AnimationLibrary_7y4ih")

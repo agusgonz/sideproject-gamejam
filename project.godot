@@ -22,6 +22,10 @@ window/size/viewport_width=320
 window/size/viewport_height=180
 window/stretch/mode="viewport"
 
+[gui]
+
+theme/custom_font="uid://n4moo5hj6gyl"
+
 [input]
 
 jump={

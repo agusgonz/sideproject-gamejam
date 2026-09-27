@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://07qkgw2vte2n"]
 
 [ext_resource type="Script" uid="uid://bnjobuurgok6d" path="res://UI/menu_game_over.gd" id="1_ivttt"]
+[ext_resource type="Texture2D" uid="uid://braf7bv2fjsys" path="res://art/ui/Reintentar Normalito.png" id="2_tti0j"]
+[ext_resource type="Texture2D" uid="uid://frgwko8p2m3q" path="res://art/ui/Reintentar Señalado.png" id="3_pb4em"]
+[ext_resource type="Texture2D" uid="uid://bie644ehvdhbe" path="res://art/ui/Salir Normalito.png" id="4_q1w4q"]
+[ext_resource type="Texture2D" uid="uid://cajspln2d43vs" path="res://art/ui/Salir Señalado yippee.png" id="5_i0558"]
 
 [node name="MenuGameOver" type="Control" unique_id=264812102]
 layout_mode = 3
@@ -42,15 +46,21 @@ mouse_filter = 2
 
 [node name="LabelPuntos" type="Label" parent="MarginContainer/VBoxContainer" unique_id=792630173]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
 text = "Puntos: "
 
-[node name="BotonReintentar" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1010718194]
+[node name="BotonReintentar" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=288602107]
 layout_mode = 2
-text = "Reintentar"
+size_flags_horizontal = 4
+texture_normal = ExtResource("2_tti0j")
+texture_hover = ExtResource("3_pb4em")
 
-[node name="BotonSalir" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1734667365]
+[node name="BotonSalir" type="TextureButton" parent="MarginContainer/VBoxContainer" unique_id=1012277479]
 layout_mode = 2
-text = "Salir"
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_q1w4q")
+texture_hover = ExtResource("5_i0558")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BotonReintentar" to="." method="_on_boton_reintentar_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BotonSalir" to="." method="_on_boton_salir_pressed"]

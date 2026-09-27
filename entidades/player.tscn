@@ -297,6 +297,7 @@ stream = SubResource("AudioStreamRandomizer_4do3y")
 [node name="ded" type="AudioStreamPlayer2D" parent="." unique_id=1769575310]
 process_mode = 3
 stream = ExtResource("9_s8mye")
+volume_db = 8.0
 
 [connection signal="player_crouched" from="." to="AnimationPlayer" method="_on_player_player_crouched"]
 [connection signal="player_uncrouched" from="." to="AnimationPlayer" method="_on_player_player_uncrouched"]

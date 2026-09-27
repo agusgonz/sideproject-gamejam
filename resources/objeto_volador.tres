@@ -1,9 +1,10 @@
 [gd_resource type="Resource" script_class="StaticObstacle" format=3 uid="uid://3r6yk02vktnf"]
 
 [ext_resource type="Script" uid="uid://b4xf23ri6obar" path="res://resources/static_obstacle.gd" id="1_wtxxo"]
-[ext_resource type="Texture2D" uid="uid://d3ybh8hlacg8e" path="res://art/paj3.png" id="2_fxatq"]
+[ext_resource type="Texture2D" uid="uid://c76icvc42fchg" path="res://art/Cosa voladora2.png" id="2_fxatq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxatq"]
+size = Vector2(15, 15)
 
 [resource]
 script = ExtResource("1_wtxxo")

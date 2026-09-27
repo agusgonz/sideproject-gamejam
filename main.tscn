@@ -138,6 +138,7 @@ texture = ExtResource("10_4c57u")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1518921805]
 stream = ExtResource("10_efxa6")
+volume_db = -4.0
 autoplay = true
 
 [connection signal="gameover" from="GameManager" to="CanvasLayerUI" method="_on_game_manager_gameover"]

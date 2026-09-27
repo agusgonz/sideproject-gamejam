@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d3ybh8hlacg8e" path="res://art/paj3.png" id="2_7weee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nmq3q"]
-size = Vector2(5, 5)
+size = Vector2(8, 8)
 
 [resource]
 script = ExtResource("1_oyfkq")

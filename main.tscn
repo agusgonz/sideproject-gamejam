@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://f1oxw8ho1ikl" path="res://managers/spawn_manager.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cc8t1pymuyqbw" path="res://UI/score_label.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://u7vlndwlg6w8" path="res://UI/canvas_layer_ui.gd" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://rtkmrwsicddm" path="res://art/Suelo.png" id="4_272bh"]
 [ext_resource type="PackedScene" uid="uid://07qkgw2vte2n" path="res://UI/MenuGameOver.tscn" id="5_272bh"]
 
 [sub_resource type="Curve" id="Curve_1bvp3"]
@@ -29,10 +30,10 @@ difficultyCurve = SubResource("Curve_1bvp3")
 enemies2D = NodePath("../Enemies2D")
 
 [node name="SpawnPointTerrestre" type="Marker2D" parent="SpawnManager" unique_id=2102753730]
-position = Vector2(370, 154)
+position = Vector2(370, 158)
 
 [node name="SpawnPointVolador" type="Marker2D" parent="SpawnManager" unique_id=878771475]
-position = Vector2(370, 117)
+position = Vector2(370, 121)
 
 [node name="SpawnTimer" type="Timer" parent="SpawnManager" unique_id=1147397860]
 wait_time = 3.0
@@ -41,7 +42,7 @@ autostart = true
 [node name="Enemies2D" type="Node2D" parent="." unique_id=1759486715]
 
 [node name="Suelo" type="StaticBody2D" parent="." unique_id=512440532]
-position = Vector2(163, 170)
+position = Vector2(163, 175)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo" unique_id=702632071]
 shape = SubResource("RectangleShape2D_of8oi")
@@ -61,15 +62,17 @@ grow_vertical = 2
 mouse_filter = 1
 color = Color(0.25098076, 0.6007175, 0.53784674, 1)
 
-[node name="Floor" type="ColorRect" parent="CanvasLayer" unique_id=1605740084]
+[node name="Floor" type="TextureRect" parent="CanvasLayer" unique_id=417598021]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 166.0
+offset_left = -40.0
+offset_top = 168.0
+offset_right = 40.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-color = Color(0.4429102, 0.44291112, 0.4429103, 1)
+texture = ExtResource("4_272bh")
 
 [node name="CanvasLayerUI" type="CanvasLayer" parent="." unique_id=1745616813]
 layer = 10

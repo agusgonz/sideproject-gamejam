@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="StaticObstacle" format=3 uid="uid://bv77qs3r4f2jt"]
 
 [ext_resource type="Script" uid="uid://b4xf23ri6obar" path="res://resources/static_obstacle.gd" id="1_5h7ki"]
-[ext_resource type="Texture2D" uid="uid://cyiglo285rqvx" path="res://art/pixil-frame-0.png" id="2_0c4qf"]
+[ext_resource type="Texture2D" uid="uid://cqqupu2xcalxp" path="res://art/cono2.png" id="2_0c4qf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5h7ki"]
 size = Vector2(8, 18.5)

@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://cc8t1pymuyqbw" path="res://UI/score_label.gd" id="4_1bvp3"]
 [ext_resource type="Script" uid="uid://u7vlndwlg6w8" path="res://UI/canvas_layer_ui.gd" id="4_7mycd"]
 [ext_resource type="PackedScene" uid="uid://07qkgw2vte2n" path="res://UI/MenuGameOver.tscn" id="5_272bh"]
-[ext_resource type="PackedScene" uid="uid://dnkpu3bb3pbsj" path="res://entidades/obstaculo_movil.tscn" id="7_272bh"]
 
 [sub_resource type="Curve" id="Curve_1bvp3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -85,9 +84,6 @@ offset_right = 61.0
 offset_bottom = 23.0
 text = "Puntos: 0"
 script = ExtResource("4_1bvp3")
-
-[node name="ObstaculoMovil" parent="." unique_id=1215452562 instance=ExtResource("7_272bh")]
-position = Vector2(239, 122)
 
 [connection signal="gameover" from="GameManager" to="CanvasLayerUI" method="_on_game_manager_gameover"]
 [connection signal="score_changed" from="GameManager" to="CanvasLayerUI/ScoreLabel" method="_on_game_manager_score_changed"]

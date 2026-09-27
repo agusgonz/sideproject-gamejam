@@ -4,7 +4,7 @@ extends AnimatableBody2D
 @export var scroll_speed: float = 100.0
 
 # El ancho exacto de tu bloque de suelo (ajústalo según el tamaño de tu TileMap/Sprite)
-@export var ground_width: float = 320.0 
+@export var ground_width: float = 384.0 
 
 func _physics_process(delta: float) -> void:
 	# Movemos el suelo constantemente hacia la izquierda

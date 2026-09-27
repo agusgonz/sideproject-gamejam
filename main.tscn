@@ -4,9 +4,11 @@
 [ext_resource type="Script" uid="uid://bdp5vhqrwf5xd" path="res://managers/game_manager.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://f1oxw8ho1ikl" path="res://managers/spawn_manager.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://cc8t1pymuyqbw" path="res://UI/score_label.gd" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cru1jud6kjuk8" path="res://art/Le city.png" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://u7vlndwlg6w8" path="res://UI/canvas_layer_ui.gd" id="4_7mycd"]
-[ext_resource type="Texture2D" uid="uid://rtkmrwsicddm" path="res://art/Suelo.png" id="4_272bh"]
 [ext_resource type="PackedScene" uid="uid://07qkgw2vte2n" path="res://UI/MenuGameOver.tscn" id="5_272bh"]
+[ext_resource type="Script" uid="uid://8n42tebo6a6y" path="res://entidades/suelo_1.gd" id="9_kek77"]
+[ext_resource type="Texture2D" uid="uid://cp8la4n7ugi2a" path="res://art/SpriteSheet_ConcreteFloor.png" id="10_4c57u"]
 
 [sub_resource type="Curve" id="Curve_1bvp3"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -53,26 +55,21 @@ position = Vector2(41, 141)
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=311716342]
 layer = -10
 
-[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=492003579]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 1
-color = Color(0.25098076, 0.6007175, 0.53784674, 1)
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1048414]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("4_5vw27")
 
 [node name="Floor" type="TextureRect" parent="CanvasLayer" unique_id=417598021]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -40.0
-offset_top = 168.0
-offset_right = 40.0
-offset_bottom = 2.0
+offset_left = -42.0
+offset_top = 167.0
+offset_right = 38.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_272bh")
 
 [node name="CanvasLayerUI" type="CanvasLayer" parent="." unique_id=1745616813]
 layer = 10
@@ -88,6 +85,49 @@ offset_right = 78.0
 offset_bottom = 23.0
 text = "Puntos: 0"
 script = ExtResource("4_1bvp3")
+
+[node name="Suelo1" type="AnimatableBody2D" parent="." unique_id=1796737938]
+script = ExtResource("9_kek77")
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo1" unique_id=228922871]
+position = Vector2(46, 188)
+texture = ExtResource("10_4c57u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Suelo1" unique_id=1893524148]
+position = Vector2(142, 188)
+texture = ExtResource("10_4c57u")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Suelo1" unique_id=7026419]
+position = Vector2(238, 188)
+texture = ExtResource("10_4c57u")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Suelo1" unique_id=670705435]
+position = Vector2(334, 188)
+texture = ExtResource("10_4c57u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo1" unique_id=1051353017]
+
+[node name="Suelo2" type="AnimatableBody2D" parent="." unique_id=1215636410]
+position = Vector2(384, 0)
+script = ExtResource("9_kek77")
+
+[node name="Sprite2D" type="Sprite2D" parent="Suelo2" unique_id=942710683]
+position = Vector2(46, 188)
+texture = ExtResource("10_4c57u")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Suelo2" unique_id=924396934]
+position = Vector2(142, 188)
+texture = ExtResource("10_4c57u")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Suelo2" unique_id=1974383654]
+position = Vector2(238, 188)
+texture = ExtResource("10_4c57u")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Suelo2" unique_id=1830697644]
+position = Vector2(334, 188)
+texture = ExtResource("10_4c57u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Suelo2" unique_id=1223628150]
 
 [connection signal="gameover" from="GameManager" to="CanvasLayerUI" method="_on_game_manager_gameover"]
 [connection signal="score_changed" from="GameManager" to="CanvasLayerUI/ScoreLabel" method="_on_game_manager_score_changed"]

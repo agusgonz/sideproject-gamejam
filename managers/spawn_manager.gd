@@ -4,6 +4,7 @@ extends Node
 @export var difficultyCurve: Curve
 @export var enemies2D: Node2D
 @onready var spawn_point_terrestre: Marker2D = $SpawnPointTerrestre
+@onready var spawn_point_volador: Marker2D = $SpawnPointVolador
 @onready var spawn_timer: Timer = $SpawnTimer
 
 const OBSTACULO_ESTATICO = preload("uid://d3ncwt7t1u7g0")
@@ -22,4 +23,7 @@ func _on_spawn_timer_timeout() -> void:
 func spawn_enemigo_estatico() -> void:
 	var obstaculoEstaticoInstanciado: CharacterBody2D = OBSTACULO_ESTATICO.instantiate()
 	enemies2D.add_child(obstaculoEstaticoInstanciado)
-	obstaculoEstaticoInstanciado.global_position = spawn_point_terrestre.global_position
+	
+	var spawnPointsGlobalPosition = [spawn_point_terrestre.global_position, spawn_point_volador.global_position]
+	
+	obstaculoEstaticoInstanciado.global_position = spawnPointsGlobalPosition.pick_random()

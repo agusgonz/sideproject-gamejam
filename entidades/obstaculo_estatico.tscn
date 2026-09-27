@@ -2,21 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://drc162w5rmim5" path="res://entidades/obstaculo.tscn" id="1_rmig8"]
 [ext_resource type="Script" uid="uid://xkycjqvo4vp1" path="res://entidades/obstaculo_estatico.gd" id="2_cu052"]
-[ext_resource type="Texture2D" uid="uid://cyiglo285rqvx" path="res://art/pixil-frame-0.png" id="3_jpfyd"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cu052"]
-size = Vector2(10, 25)
 
 [node name="ObstaculoEstatico" unique_id=1215452562 instance=ExtResource("1_rmig8")]
 script = ExtResource("2_cu052")
-texture = ExtResource("3_jpfyd")
-
-[node name="Sprite2D" parent="." index="0" unique_id=107439700]
-texture = ExtResource("3_jpfyd")
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(842217345) index="0" unique_id=1478201864]
-position = Vector2(0, 3.5)
-shape = SubResource("RectangleShape2D_cu052")
 debug_color = Color(0.7529412, 0, 0.12941177, 0.41960785)
 
 [node name="VisibleOnScreenNotifier2D" parent="." index="2" unique_id=1319535588]
